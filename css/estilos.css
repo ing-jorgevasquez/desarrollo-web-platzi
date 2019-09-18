@@ -1,3 +1,46 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?jaxzkm');
+  src:  url('../fonts/icomoon.eot?jaxzkm#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?jaxzkm') format('truetype'),
+    url('../fonts/icomoon.woff?jaxzkm') format('woff'),
+    url('../fonts/icomoon.svg?jaxzkm#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-facebook:before {
+  content: "\ea91";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+
+
 /* reglas, selectores, declaraciones, propiedades y valores de CSS */
 body {
     font-family: 'Source sans pro', sans-serif;
@@ -54,6 +97,7 @@ figure {
     height: 70px;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .menu {
@@ -96,6 +140,7 @@ figure {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .hero strong {
@@ -129,15 +174,16 @@ figure {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .project-details {
-    display: inline-block;
-    height: 300px;
+    /* display: inline-block;
+    height: 300px; */
     /* margin: 0 auto; /* // Se usa para centrar horizontalmente */
-    margin: 10px;
-    vertical-align: top;
-    width: 600px;
+    /* margin: 10px;
+    vertical-align: top; */
+    width: 50%;
 }
 
 .project-title {
@@ -161,9 +207,13 @@ figure {
 }
 
 .project-imageContainer {
-    display: inline-block;
-    vertical-align: top;
-    width: 500px;
+    /* display: inline-block;
+    vertical-align: top; */
+    width: 50%;
+}
+
+.project-imageContainer img {
+    max-width: 100%;
 }
 
 /* Pruebas de estilos con flexbox */
@@ -187,6 +237,7 @@ figure {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .footer a {
@@ -210,13 +261,14 @@ figure {
     border-radius: 10px;
     background-color: #F4FBFF;
     flex-shrink: 0;
-    margin: 10px;
+    margin: 1%;
     overflow: hidden;
-    width: 480px;
+    width: 48%;
 }
 
 .event img {
-    width: 480px;
+    /* width: 480px; */
+    width: 100%;
     height: 200px;
     object-fit: cover;
 }
@@ -249,12 +301,22 @@ figure {
     color: white;
     display: flex;
     height: 150px;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .social {
     /* border: 1px solid red; */
+}
+
+.icon-twitter,
+.icon-facebook,
+.icon-github,
+.icon-instagram {
+    color: white;
+    font-size: 60px;
+    text-decoration: none;
 }
 
 .social-link {
@@ -263,11 +325,13 @@ figure {
     width: 50px;
     background-size: 50px 50px;
     margin: 0 20px;
+    text-decoration: none;
 }
 
 .social-link.twitter {
     background-image: url("../images/twitter.svg");
 }
+
 
 .social-link.facebook {
     background-image: url("../images/facebook.svg");
@@ -307,6 +371,7 @@ figure {
 }
 
 .container {
+    padding: 0 1em;
     align-items: inherit;
     /* border:  1px solid red; */
     display: inherit;
@@ -314,5 +379,211 @@ figure {
     height: inherit;
     justify-content: inherit;
     margin: 0 auto;
-    width: 1000px;
+    /* width: 1000px; */
+    /* max-width: 1000px; */
+    flex: 1;
+}
+
+/* Para Desktop first, se recomienda empezar con el MQ más grande */
+
+@media screen and (max-width: 1024px){
+    .portfolio {
+        padding: 0;
+    }
+    h1 {
+        font-size: 2em;
+        z-index: 2;
+    }
+    .hero {
+        height: auto;
+        position: relative;
+        overflow: hidden;
+        padding: 2em;
+    }
+    .hero-image {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+}
+
+.html-video {
+    width: 100%;
+    height: auto;
+    /* max-width: 100% */
+}
+
+.flexible-video {
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+.youtube-video {
+    /* width: 100%;
+    height: auto; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.burger-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.8);
+    display: none;
+    text-align: center;
+    line-height: 40px;
+    position: fixed;
+    z-index: 4;
+    top: 5px;
+    left: 5px;
+    color: white;
+}
+
+@media screen and (max-width: 767px){
+    .burger-button {
+        display: block;
+    }
+    .header {
+        display: block;
+        height: auto;
+    }
+    .header ol {
+        display: block;
+    }
+    .header ol li {
+        height: 50px;
+    }
+    .header a {
+        justify-content: center;
+        height: 40px;
+        font-size: 1.5em;
+        text-decoration: underline;
+        margin-bottom: .5em;
+    }
+    .header .logo {
+        text-align: center;
+    }
+    .menu {
+        position: fixed;
+        background: rgba(2, 111, 255, .85);
+        z-index: 3;
+        top: 0;
+        /* con bottom:0 y top:0 el elemento se estira verticalmente desde arriba hasta abajo */
+        bottom: 0;
+        left: -100vw; /* lo escondemos con position negativa */
+        width: 100vw;
+        /* comentamos esto porque el hijo ol hereda esta propiedad */
+        /* height: 100vh; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .3s;
+    }
+    .menu.is-active {
+        left: 0;
+    }
+    .project {
+        display: block;
+    }
+    .project-imageContainer {
+        width: auto;
+        text-align: center;
+    }
+    .project-details {
+        width: auto;
+        /* font-size: 16px; */
+    }
+    .project-course, .project-date, .project-url {
+        margin: .3em 0;
+    }
+    .project-title {
+        font-size: 1.5em;
+        margin-bottom: .3em;
+    }
+    .project-course {
+        font-size: .7em;
+    }
+    .project-date {
+        font-size: 1em;
+    }
+    .project-date {
+        font-size: 1em;
+    }
+    .project-description {
+        font-size: .8em;
+    }
+    .event {
+        width: auto;
+        flex-shrink: initial;
+    }
+    .event img {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 587px) {
+    .contact {
+        display: block;
+        height: auto;
+        text-align: center;
+        padding: 1em;
+    }
+
+    .form-email h3 {
+        margin-top: 0;
+    }
+
+    .form-email button {
+        margin: 1em auto;
+    }
+
+    .footer {
+        /* Solución al centrado de textos en el footer CON flexbox */
+        /* justify-content: center;  */
+
+        /* Solución al centrado de textos en el footer SIN flexbox */
+        display: block;
+        text-align: center;
+        border: 1px solid transparent;
+    }
+}
+
+@media screen and (max-width: 480px){
+    h1 {
+        font-size: 1.5em;
+    }
+    .project-details {
+        font-size: 12px;
+    }
+    /* 1em = 16px (valor por defecto asignado por los browsers) */
+    .event-detail {
+        margin: -2em .5em .5em;
+    }
+
+    .social-link {
+        margin: 0 10px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    h1 {
+        font-size: 1.2em;
+        background: rgba(0,0,0,.5);
+    }
+    .hero {
+        padding: 2em 1em;
+    }
 }
